@@ -1,0 +1,37 @@
+<!--
+author: markwy
+date:	2017.1.25
+Note:	try js.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+	<p>Output1: </p><p id="out1"> </p>
+	<p>Output2: </p><p id="out2"> </p>
+	<p>Output3: </p><p id="out3"> </p>
+	<input type="button" value="Try" onclick="jsTest()">
+	<script>
+		function jsTest() {
+			var animalobj = {
+				small	:"cat", 
+				middle	:"dog", 
+				fat		:"pig", 
+				big		:"tiger",
+				age		:5,
+				hook	:function() {
+					alert('hook.');
+				}
+			};
+			document.getElementById("out1").innerHTML = animalobj['small'];
+			document.getElementById("out2").innerHTML = animalobj['middle'];
+			document.getElementById("out3").innerHTML = animalobj['fat'];
+			animalobj.hook();	
+		}
+	</script>
+
+</body>
+</html>

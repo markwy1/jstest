@@ -1,0 +1,45 @@
+<!--
+author: markwy
+date:	2017.1.24
+Note:	Get windows width, 3 method.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+	<p id="demo"></p>
+
+	<script>
+		//var a = 6;
+		//a >= 5 && alert(a + "你好"); 
+		var add_step = 3;
+		//alert(add_level={'5':1,'10':2,'12':3,'15':4}[add_step] || 0); 
+		//alert(4 && undefined || 5 && 9 && true || 3 && 'ab');
+		//var a = 8;
+		//a > 5 && alert('show a message!');
+		var index = 'ten';
+		alert({'one':1,'two':2,'three':3,'four':4}[index] || 0)
+		var w  = window.innerWidth;						//w
+		var w1 = document.documentElement.clientWidth;	//w
+		var w2 = document.body.clientWidth;				//w-16
+
+		var h  = window.innerHeight;					//h
+		var h1 = document.documentElement.clientHeight;	//h
+		var h2 = document.body.clientHeight;			//0
+
+		x = document.getElementById("demo");
+		x.innerHTML="浏览器的内部窗口宽度：" 
+			+ w + "," 
+			+ w1 + "," 
+			+ w2 + 
+			"，高度：" 
+			+ h + "," 
+			+ h1 + "," 
+			+ h2 + "。"; 
+	</script>
+
+</body>
+</html>

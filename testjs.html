@@ -1,0 +1,32 @@
+<!--
+author: markwy
+date:	2017.1.25
+Note:	try js.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+	<p>Output1: </p><p id="out1"> </p>
+	<p>Output2: </p><p id="out2"> </p>
+	<p>Output3: </p><p id="out3"> </p>
+	<input type="button" value="Try" onclick="jsTest()">
+	<script>
+		function jsTest() {
+			var attr = -(-5);
+			var vbool = false;
+			//把变量转换成布尔值，即true, false
+			//野路子，简短
+			document.getElementById("out1").innerHTML = attr;
+			//标准写法，易读
+			document.getElementById("out2").innerHTML = Boolean(attr);
+			document.getElementById("out3").innerHTML = (!!null).valueOf() + ", " + (!!undefined).valueOf();
+			//document.write(typeof typeof eval);
+		}
+	</script>
+
+</body>
+</html>
