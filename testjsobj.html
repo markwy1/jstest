@@ -1,7 +1,7 @@
 <!--
 author: markwy
-date:	2017.1.25
-Note:	try js.
+date:	2017.1.26
+Note:	try js object. several type definition of an object.
 -->
 <!DOCTYPE html>
 <html>
@@ -13,24 +13,45 @@ Note:	try js.
 	<p>Output1: </p><p id="out1"> </p>
 	<p>Output2: </p><p id="out2"> </p>
 	<p>Output3: </p><p id="out3"> </p>
-	<input type="button" value="Try" onclick="jsTest()">
+	<p>Output4: </p><p id="out4"> </p>
+	<p>Output5: </p><p id="out5"> </p>
+
 	<script>
-		function jsTest() {
-			var animalobj = {
-				small	:"cat", 
-				middle	:"dog", 
-				fat		:"pig", 
-				big		:"tiger",
-				age		:5,
-				hook	:function() {
-					alert('hook.');
-				}
-			};
-			document.getElementById("out1").innerHTML = animalobj['small'];
-			document.getElementById("out2").innerHTML = animalobj['middle'];
-			document.getElementById("out3").innerHTML = animalobj['fat'];
-			animalobj.hook();	
+		var message = "var is an object.";
+		var len = message.length;
+		var upmsg = message.toUpperCase();
+		document.getElementById("out1").innerHTML = upmsg;
+		// define object by new
+		var person		= new Object();		//not object
+		person.name 	= "Yong";
+		person.gender 	= "male";
+		person.age 		= 30;
+		document.getElementById("out2").innerHTML = person.age + ", " + person["age"];
+		// by instance
+		var person_b = { name:"Yong", gender:"male", age:30 };
+		document.getElementById("out3").innerHTML = person_b.gender + ", " + person_b["age"];
+
+		// by function
+		function person_c(name, gender, age) {
+			this.name 	= name;
+			this.gender = gender;
+			this.age 	= age;
+			this.changename = fchangename;
+			function fchangename(newname) {
+				this.name = newname;
+			}
 		}
+		tomson = new person_c("tomson", "male", 20);
+		//可以直接访问对象内部成员函数
+		tomson.changename("big tomson");
+		document.getElementById("out4").innerHTML = tomson.name;
+
+		var part;
+		var txt = '';
+		for (part in tomson) {
+			txt = txt + ", " + tomson[part];
+		}
+		document.getElementById("out5").innerHTML = txt;
 	</script>
 
 </body>
