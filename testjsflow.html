@@ -1,0 +1,45 @@
+<!--
+author: markwy
+date:	2017.1.26
+Note:	try js switch.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+	<p>Output1: </p><p id="out1"> </p>
+	<p>Output2: </p><p id="out2"> </p>
+	<p>Output3: </p><p id="out3"> </p>
+	<p>Output4: </p><p id="out4"> </p>
+	<p>Output5: </p><p id="out5"> </p>
+	<input type="button" name="button1" value="try" onClick="myFunction()">
+
+	<script>
+		function myFunction()
+		{
+			var x;
+			var d = 1//new Date().getDay();
+			switch (d)
+			{
+				case 1:
+				case 2:
+					x = "tired.";
+					break;
+				case 3:
+				case 4:
+					x = "busy.";
+					break;
+				case 5:
+					x = "can not wait."
+				default:
+					x = "Weekend.";
+			}
+			document.getElementById("out1").innerHTML = x;
+		}
+	</script>
+
+</body>
+</html>
