@@ -2,7 +2,7 @@
 Author	: Yong Wang
 Title	: callback function
 Date	: 2017.01.28
-Note	: try some callback function.
+Note	: try some callback function. setTimeout need '' to revoke functions.
 -->
 <html>
 <head>
@@ -10,7 +10,7 @@ Note	: try some callback function.
 		// callback function 1. 参数是一个函数
 		var func1=function(callback){
   		// 下面三条语句依次执行，callback并不是最后执行，相当于同步执行。
-  			setTimeout(alert("function 1 is revoked, No1"), 3000);
+  			setTimeout('alert("wait 2 sec, No1")', 2000);
   			(callback && typeof(callback) === "function") && callback();
   			alert("statences after the callback function2. No3");
 		}
@@ -21,7 +21,7 @@ Note	: try some callback function.
 
 		// 用匿名函数代替func2 
 		func1(function() {
-			var t1 = setTimeout(alert("Wait 10 sec. No2"), 10000);
+			var t1 = setTimeout('alert("Wait 6 sec. No2")', 6000);
 		});
 		
 		// callback function 2

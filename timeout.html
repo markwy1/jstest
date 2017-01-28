@@ -1,23 +1,18 @@
 <!--
 Author: Yong Wang
-Title: 	Run js code in a string.
+Title: 	try setTimeout
 Date: 	2017.01.028
-Note:  setTimeout 其实就是一个js语法解释器。
+Note:   "" is needed to surround the function 
 -->
 <html>
 <head>
 	<script type="text/javascript">
 		function timedMsg()
 		{
-			//初步测试发现，如果a,b不是全局变量，即用var定义，不出结果
-			a = 2;
-			b = 3;
-			//想得到表达式expToRun的结果，这种情况下是'a'。
-			var expToRun = "(a > b && 5 || 'a')";
-			var tmpRun = "r = " + expToRun;
-			var t1 = setTimeout(tmpRun, 5000);
-			// r中就是expToRun表达式的结果
-			alert(r);
+			//var msg = "alert('wait 5 sec.')";
+			//var t1 = setTimeout(msg, 5000);
+			setTimeout("alert('wait 5 sec.')", 5000); // right
+			setTimeout(alert('没有引号setTimeout不起作用.'), 5000); //wrong
 		}
 	</script>
 </head>
