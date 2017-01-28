@@ -15,7 +15,7 @@ Note:  setTimeout 其实就是一个js语法解释器。
 			//想得到表达式expToRun的结果，这种情况下是'a'。
 			var expToRun = "(a > b && 5 || 'a')";
 			var tmpRun = "r = " + expToRun;
-			var t1 = setTimeout(tmpRun, 1);
+			var t1 = setTimeout(tmpRun, 5000);
 			// r中就是expToRun表达式的结果
 			alert(r);
 		}

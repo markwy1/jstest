@@ -1,0 +1,43 @@
+<!--
+Author	: Yong Wang
+Title	: callback function
+Date	: 2017.01.28
+Note	: try some callback function.
+-->
+<html>
+<head>
+	<script>
+		// callback function 1. 把参数是一个函数
+		var func1=function(callback){
+  		//do something.
+  			alert("function 1 is revoked");
+  			(callback && typeof(callback) === "function") && callback();
+		}
+
+		var func2 = function() {
+			alert("function 2 is revoked.");
+		}
+		func1(func2);
+		
+		// callback function 2
+		var PersonInfo = {
+    		name:'Sigma',
+    		age:18
+		};
+		function getPersonInfo( callback ) {
+    		var myInfo = PersonInfo;
+    		alert("before callback.");
+    		(callback && typeof(callback) === "function") && callback( myInfo );
+		}
+		getPersonInfo(function( data )	{
+    		alert( data.name );
+		});	
+</script>
+</head>
+
+<body>
+	<form>
+		<input type="button" value="Click here" onClick="">
+	</form>
+</body>
+</html>
