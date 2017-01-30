@@ -1,0 +1,48 @@
+<!--
+author: markwy
+date:	2017.1.30
+Note:	js escape(). 有意思，想改字符串中某一个字符，直接赋值改不了。
+字符的ASCII码： a_char.charCodeAt()
+ASCII的字符：String.fromCharCode(41) 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<p>Output1: </p><p id="out1"> </p>
+	<p>Output2: </p><p id="out2"> </p>
+	<p>Output3: </p><p id="out3"> </p>
+	<p>Output3: </p><p id="out4"> </p>
+
+
+	<script>
+		var str = "abc";
+		var str_cpy = str;
+		var es = escape(str);
+
+		//document.write(es);
+		document.getElementById("out1").innerHTML = str;
+		document.getElementById("out2").innerHTML = es;
+		
+		var code_txt = "";
+		var es_encode = {};
+		var decode_txt = "";
+		var es_decode = {};
+		for (var i = 0; i < es.length; i++) {
+			// 对字符加密
+			es_encode[i] = String.fromCharCode(es.charCodeAt(i)+1);
+			str_cpy[i] = str[i];
+			code_txt = code_txt + es_encode[i];
+			// 对字符解密
+			es_decode[i] = String.fromCharCode(es_encode[i].charCodeAt() - 1) ;
+			decode_txt = decode_txt + es_decode[i];
+		}
+		document.getElementById("out3").innerHTML = code_txt;
+		document.getElementById("out4").innerHTML = decode_txt;
+	</script>
+
+</body>
+
+</html>
